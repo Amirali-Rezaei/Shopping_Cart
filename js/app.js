@@ -1,10 +1,20 @@
 // Variabels
 const courses = document.querySelector("#courses-list");
 const shoppingCartContent = document.querySelector("#cart-content tbody");
+const clearCartBtn = document.querySelector("#clear-cart");
 
 // Event Listeners
 function eventListeners() {
   courses.addEventListener("click", buyCourse);
+
+  // Remove Course From Cart Event Listener
+  shoppingCartContent.addEventListener("click", removeCourse);
+
+  // Empty The Cart
+  clearCartBtn.addEventListener("click", clearCart);
+
+  // Get Courses From LocalStorage On Load
+  document.addEventListener("DOMContentLoaded", showCoursesOnLoad);
 }
 
 eventListeners();
@@ -40,7 +50,7 @@ function getCourseInfo(course) {
 
 // Adding The Course To The Card Fuction
 function addToCart(courseInfo) {
-  // Creating an <tr> tag
+  // Creating a <tr> tag
   let row = document.createElement("tr");
 
   // Building a HTML template
@@ -57,5 +67,79 @@ function addToCart(courseInfo) {
     </tr>
   `;
 
+  // Adding The Course To The Cart
   shoppingCartContent.appendChild(row);
+
+  saveToLocalStorage(courseInfo);
+}
+
+// Course Removing From Cart Function
+function removeCourse(e) {
+  e.preventDefault();
+
+  if (e.target.classList.contains("remove")) {
+    e.target.parentElement.parentElement.remove();
+  }
+}
+
+// Removes All Courses From Cart
+function clearCart(e) {
+  // Not A Good Way But A Working One
+  // shoppingCartContent.innerHTML = "";
+
+  while (shoppingCartContent.firstChild) {
+    shoppingCartContent.firstChild.remove();
+  }
+}
+
+// Saves The Item To The LocalStorage
+function saveToLocalStorage(course) {
+  // Get An Array Of Courses From LocalStorage
+  let courses = getCoursesFromLocalStorage();
+
+  // Adds The New Course To The Courses Array
+  courses.push(course);
+
+  localStorage.setItem("courses", JSON.stringify(courses));
+}
+
+// Gets Content From LocalStorage
+function getCoursesFromLocalStorage() {
+  let courses;
+
+  // Checks If The LocalStorage Is Empty Or Not
+  if (localStorage.getItem("courses")) {
+    courses = JSON.parse(localStorage.getItem("courses"));
+  } else {
+    courses = [];
+  }
+
+  return courses;
+}
+
+// Get Courses From LocalStorage On Load And Add Them To The cart
+function showCoursesOnLoad() {
+  let coursesInLocalStorage = getCoursesFromLocalStorage();
+
+  // Add Courses Into The Cart
+  coursesInLocalStorage.forEach(function (course) {
+    // Creating a <tr> tag
+    let row = document.createElement("tr");
+
+    // Building a HTML template
+    row.innerHTML = `
+    <tr>
+      <td>
+        <img src="${course.courseImage}" width="100px" alt="عکس دوره"/>
+      </td>
+      <td>${course.courseName}</td>
+      <td>${course.coursePrice}</td>
+      <td>
+        <a class="remove" href="#" data-id="${course.courseId}" >X</a>
+      </td>
+    </tr>
+  `;
+
+    shoppingCartContent.appendChild(row);
+  });
 }

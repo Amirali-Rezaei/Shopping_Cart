@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>اضافه کردن دوره به سبد خرید</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+<header id="header" class="header">
+    <div class="container">
+        <div class="row">
+            <div class="ten columns">
+                <a href="https://megajs.com/">
+                    <img src="img/logo.png" id="logo">
+                </a>
+            </div>
+            <div class="two columns u-pull-right">
+                <ul>
+                    <li class="submenu">
+                        <img src="img/cart.png" id="img-cart">
+                        <div id="shopping-cart">
+                            <table id="cart-content" class="u-full-width">
+                                <thead>
+                                <tr>
+                                    <th>تصویر</th>
+                                    <th>اسم دوره</th>
+                                    <th>قیمت</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+
+                            <a href="#" id="clear-cart" class="button u-full-width">پاک کردن</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="hero">
+    <div class="container">
+        <div class="row">
+            <div class="tweleve columns">
+                <div class="hero-content">
+                    <h2>مگا جی اس مرجع تخصصی آموزش جاوااسکریپت</h2>
+                    <p>تخفیف ویژه برای همه دوره ها</p>
+                    <form action="#" id="search" method="post" class="form">
+                        <input class="u-full-width" type="text" placeholder="چی میخوای یاد بگیری؟"
+                               id="search-course">
+                        <input type="submit" id="submit-search-course" class="submit-search-course">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-bar">
+    <div class="container">
+        <div class="row">
+            <div class="four columns icon icon1">
+                <p> آموزش رایگان جاوااسکریپت <br>
+                    مهارت پول ساز یاد بگیرید</p>
+            </div>
+            <div class="four columns icon icon2">
+                <p>دوره های هیولاشو<br>
+                    آموزشی متفاوت از جاوااسکریپت</p>
+            </div>
+            <div class="four columns icon icon3">
+                <p>دسترسی مادام العمر به محتوای دوره <br>
+                    بعد از پرداخت دوره</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="courses-list" class="container">
+    <h1 id="heading" class="heading">MEGAJS</h1>
+    <div class="row">
+        <div class="six columns">
+            <div class="card">
+                <a href="https://megajs.com/shop/course/javascript/learn-javascript/">
+                    <img src="img/course1.jpg" class="course-image u-full-width">
+                </a>
+                <div class="info-card">
+                    <h4>دوره جاوااسکریپت</h4>
+
+                    <p>محمدرضا حاجی مقصودی</p>
+                    <img src="img/stars.png">
+                    <p class="price">۱۹۰/۰۰۰ تومان <span class="u-pull-left ">۹۵/۰۰۰ تومان</span></p>
+                    <a href="#" class="u-full-width button-primary button input add-to-cart" data-id="1">افزودن به
+                        سبد خرید</a>
+                </div>
+            </div>
+            <!--.card-->
+        </div>
+        <div class="six columns">
+            <div class="card">
+                <a href="https://megajs.com/shop/deep-learn/js/operators/">
+                    <img src="img/course2.jpg" class="course-image u-full-width">
+                </a>
+                <div class="info-card">
+                    <h4>دوره عملگرها</h4>
+                    <p>محمدرضا حاجی مقصودی</p>
+                    <img src="img/stars.png">
+                    <p class="price">۱۰۰/۰۰۰ تومان <span class="u-pull-left">۴۵/۰۰۰ تومان</span></p>
+                    <a href="#" class="u-full-width button-primary button input add-to-cart" data-id="2">افزودن به
+                        سبد خرید</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--.row-->
+    <div class="row">
+        <div class="six columns">
+            <div class="card">
+                <a href="https://megajs.com/shop/deep-learn/js/arrays/">
+                    <img src="img/course4.jpg" class="course-image u-full-width">
+                </a>
+                <div class="info-card">
+                    <h4>دوره آرایه ها</h4>
+                    <p>محمدرضا حاجی مقصودی</p>
+                    <img src="img/stars.png">
+                    <p class="price">۹۰/۰۰۰ تومان <span class="u-pull-left ">۶۵/۰۰۰ تومان</span></p>
+                    <a href="#" class="u-full-width button-primary button input add-to-cart" data-id="4">افزودن به
+                        سبد خرید</a>
+                </div>
+            </div>
+            <!--.card-->
+        </div>
+        <div class="six columns">
+            <div class="card">
+                <a href="https://megajs.com/shop/deep-learn/js/functions/">
+                    <img src="img/course5.jpg" class="course-image u-full-width"/>
+                </a>
+                <div class="info-card">
+                    <h4>دوره توابع</h4>
+                    <p>محمدرضا حاجی مقصودی</p>
+                    <img src="img/stars.png">
+                    <p class="price">۷۰/۰۰۰ تومان <span class="u-pull-left ">۴۰/۰۰۰ تومان</span></p>
+                    <a href="#" class="u-full-width button-primary button input add-to-cart" data-id="5">افزودن به
+                        سبد خرید</a>
+                </div>
+            </div>
+            <!--.card-->
+        </div>
+    </div>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="six columns">
+                    <nav id="primary" class="menu">
+                        <a class="link" href="#">دوره ها</a>
+                        <a class="link" href="#">دوره هیولاشو</a>
+                        <a class="link" href="#">تونل یادگیری</a>
+                    </nav>
+                </div>
+                <div class="six columns">
+                    <nav id="secondary" class="menu">
+                        <a class="link" href="#">درباره ما</a>
+                        <a class="link" href="#">همکاری با ما</a>
+                        <a class="link" href="#">وبلاگ</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+
+</div>
+</body>
+
+</html>

@@ -241,3 +241,7 @@ h4 {
 .two.columns.u-pull-right ul {
   padding: 0;
 }
+
+.submenu td{
+  font-size: 13px;
+}

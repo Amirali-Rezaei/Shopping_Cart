@@ -75,21 +75,37 @@ function addToCart(courseInfo) {
 
 // Course Removing From Cart Function
 function removeCourse(e) {
+  let course, courseId;
+
   e.preventDefault();
 
   if (e.target.classList.contains("remove")) {
+    course = e.target.parentElement.parentElement;
+    courseId = course.querySelector("a").getAttribute("data-id");
+
     e.target.parentElement.parentElement.remove();
   }
+
+  // Remove Course From LocalStorage
+  removeFromLocalStorage(courseId);
 }
 
 // Removes All Courses From Cart
 function clearCart(e) {
+  e.preventDefault();
   // Not A Good Way But A Working One
   // shoppingCartContent.innerHTML = "";
 
   while (shoppingCartContent.firstChild) {
     shoppingCartContent.firstChild.remove();
   }
+
+  clearCartFromLocalStorage();
+}
+
+// Clears The Hole Cart That It's In LocalStorage
+function clearCartFromLocalStorage() {
+  localStorage.clear();
 }
 
 // Saves The Item To The LocalStorage
@@ -142,4 +158,17 @@ function showCoursesOnLoad() {
 
     shoppingCartContent.appendChild(row);
   });
+}
+
+// Removing Course From LocalStorage
+function removeFromLocalStorage(courseId) {
+  let coursesList = getCoursesFromLocalStorage();
+
+  coursesList.forEach(function (course, index) {
+    if (course.courseId == courseId) {
+      coursesList.splice(index, 1);
+    }
+  });
+
+  localStorage.setItem("courses", JSON.stringify(coursesList));
 }
